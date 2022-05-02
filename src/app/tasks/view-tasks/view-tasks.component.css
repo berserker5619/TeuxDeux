@@ -1,0 +1,9 @@
+table{
+    border-collapse: separate;
+}
+td{
+    border-collapse: collapse;
+}
+.table-responsive {
+    max-height:400px;
+}

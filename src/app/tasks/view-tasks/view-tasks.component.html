@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="card mt-3">
+        <div class="card-header bg-dark text-light fw-bold">
+            <h3><i class="fas fa-tasks"></i> Tasks <button class="btn btn-success float-end" (click)="createTask()">
+                    <i class="fi-cwsuxl-plus-solid"></i> Create Task</button></h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-2">
+                    <ul class="nav flex-column shadow mb-2 p-3 bg-body rounded">
+                        <li class="nav-item mb-2">
+                            <h4>Filters</h4>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <h6>Status:</h6>
+                            <select class="btn btn-dark" (change)="orderByCompletion($event.target.value)">
+                                <option value="true">Completed</option>
+                                <option value="false" selected>Pending</option>
+                            </select>
+                        </li>
+                        <li class="nav-item">
+                            <h6>Order by:</h6>
+                            <select class="btn btn-dark" (change)="orderByCreation($event.target.value)">
+                                <option value="asc">Oldest</option>
+                                <option value="desc" selected>Latest</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-7">
+                    <div class="spinner-border" style="width: 3rem; height: 3rem;" *ngIf="tasks.length===0"
+                        role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-borderless">
+                            <tbody *ngFor="let task of tasks" class="shadow-lg bg-body rounded">
+                                <tr>
+                                    <td colspan="2">
+                                        <h5>{{task.title}}</h5>
+                                    </td>
+                                    <td>
+                                        <small *ngIf="task.completed"
+                                            class="d-inline text-success fw-bold">Completed</small>
+                                        <small *ngIf="!task.completed"
+                                            class="d-inline text-warning fw-bold">Pending</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">{{task.description}}</td>
+                                    <td>
+                                        <button id="task-button" class="btn btn-success" *ngIf="!task.completed"
+                                            (click)="completeTask(task)" title="Mark as Completed">
+                                            <i class="bi bi-check2-circle"></i>
+                                        </button>&nbsp;
+                                        <button id="task-button" class="btn btn-warning" (click)="editTask(task._id)"
+                                            title="Edit Task">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </button>&nbsp;
+                                        <button id="task-button" class="btn btn-danger" (click)="deleteTask(task._id)"
+                                            title="Delete Task">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
