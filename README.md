@@ -10,17 +10,28 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## User Module
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Features
 
-## Running unit tests
+- **Register:**
+  - Allow users to register for an account.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Login:**
+  - Provide secure login functionality for existing users.
 
-## Running end-to-end tests
+- **Profile:**
+  - Allow users to view and manage their profiles.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Task Module
+
+### Features
+
+- **Create Tasks:**
+  - Users can create new tasks.
+
+- **View Tasks:**
+  - Display tasks with filtering options.
 
 ## Further help
 
